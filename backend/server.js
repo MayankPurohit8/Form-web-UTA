@@ -11,7 +11,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello this is the backend");
 });
-
+app.use(cors());
 app.use("/api/players", playersRoutes);
 app.use("/api/partners", partnersRoutes);
 app.use("/api/admin", adminRoutes);

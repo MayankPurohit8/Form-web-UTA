@@ -1,7 +1,8 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router";
 //Registration page1
 function RuleList() {
+  let navigate = useNavigate();
   const [cont, setCont] = useState();
   return (
     <>
@@ -206,6 +207,7 @@ function RuleList() {
         <div className="w-full flex justify-center space-x-10 ">
           <button className="text-red-500 cursor-pointer">Back</button>
           <button
+            onClick={() => cont && navigate("/registration")}
             className={` px-7 text-xl py-3 rounded-xl text-white ${
               cont
                 ? "bg-sky-500 cursor-pointer"

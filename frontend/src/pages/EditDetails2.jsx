@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
-function UserRegistration2() {
+function EditDetails2() {
   let navigate = useNavigate();
   const [playerList, setPlayerList] = useState();
   // ✅ State for form data
@@ -172,4 +172,4 @@ function UserRegistration2() {
   );
 }
 
-export default UserRegistration2;
+export default EditDetails2;

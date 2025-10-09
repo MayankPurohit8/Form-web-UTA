@@ -2,6 +2,8 @@ import express from "express";
 import {
   getPlayersByEvent,
   updatePartner,
+  getListEvent1,
+  getListEvent2,
 } from "../controllers/partnersControllers.js";
 
 const router = express.Router();
@@ -10,6 +12,9 @@ const router = express.Router();
 router.get("/event/:eventId", getPlayersByEvent);
 
 // Update partnerId for an event row (when partner registers)
-router.put("/:id", updatePartner);
+router.put("/update", updatePartner);
+
+router.get("/getlist1", getListEvent1);
+router.get("/getlist2", getListEvent2);
 
 export default router;

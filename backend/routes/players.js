@@ -2,7 +2,7 @@ import express from "express";
 import {
   registerPlayer,
   loginPlayer,
-  getPlayerDetails,
+  updateDetails,
 } from "../controllers/playersControllers.js"; // 👈 must include .js extension
 
 const router = express.Router();
@@ -13,7 +13,6 @@ router.post("/register", registerPlayer);
 // User login with WhatsApp + DOB
 router.post("/login", loginPlayer);
 
-// Get a player with prefilled details
-router.get("/:id", getPlayerDetails);
+router.post("/edit", updateDetails);
 
 export default router;

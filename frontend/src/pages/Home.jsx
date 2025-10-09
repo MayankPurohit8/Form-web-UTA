@@ -1,6 +1,6 @@
-//import { button } from "@/components/ui/button";
-
+import { useNavigate } from "react-router";
 export default function Home() {
+  let navigate = useNavigate();
   let year = new Date().getFullYear();
   return (
     <div className="min-h-screen flex flex-col">
@@ -11,7 +11,10 @@ export default function Home() {
             Uttaranchal Tennis Association
           </h1>
           <nav className="space-x-3 hidden md:flex gap-5 font-semibold text-gray-500">
-            <button className=" rounded-2xl  hover:text-gray-900">
+            <button
+              className=" rounded-2xl  hover:text-gray-900"
+              onClick={() => navigate("/rules")}
+            >
               Register
             </button>
             <button className="rounded-2xl  hover:text-gray-900">

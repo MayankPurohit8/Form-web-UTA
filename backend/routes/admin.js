@@ -7,9 +7,9 @@ import {
 const router = express.Router();
 
 // Get all pairs for an event
-router.get("/event/:eventId", getPairsByEvent);
+router.get("/event", getPairsByEvent);
 
 // Update rankings for all pairs
-router.put("/rankings", updateRankings);
+router.post("/rankings", updateRankings);
 
 export default router;

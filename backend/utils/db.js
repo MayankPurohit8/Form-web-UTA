@@ -42,10 +42,8 @@ export async function setupDatabase() {
         dateOfBirth DATE,
         city VARCHAR(100),
         shirtSize VARCHAR(10),
-        shortSize VARCHAR(10),
-        foodPref ENUM('Veg', 'Non-Veg', 'Vegan') DEFAULT 'Veg',
+        foodPref ENUM('Veg', 'Non-Veg', 'NA'),
         stayYorN ENUM('Y', 'N') DEFAULT 'N',
-        feePaid BOOLEAN DEFAULT FALSE,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `;
@@ -53,9 +51,10 @@ export async function setupDatabase() {
     const createPartnersTable = `
       CREATE TABLE IF NOT EXISTS tbl_partners (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        eventId INT NOT NULL,
+        eventId INT,
+        eventNum ENUM('1','2'),
         userId INT NOT NULL,
-        partnerId INT NULL,
+        partnerId INT,
         ranking INT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (eventId) REFERENCES tbl_eventName(id) ON DELETE CASCADE,
@@ -63,7 +62,6 @@ export async function setupDatabase() {
         FOREIGN KEY (partnerId) REFERENCES tbl_players(id) ON DELETE SET NULL
       );
     `;
-
     await connection.query(createEventTable);
     await connection.query(createPlayersTable);
     await connection.query(createPartnersTable);
